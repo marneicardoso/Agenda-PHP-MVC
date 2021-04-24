@@ -1,0 +1,13 @@
+17223
+
+Criar a tela de Login
+
+View > login.php
+
+
+
+
+
+Extra:
+
+ - Colocar mais parâmetros na SESSION e buscar noutra página

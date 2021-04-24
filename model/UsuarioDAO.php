@@ -42,4 +42,52 @@ class UsuarioDAO
 
         return $cadastrou;
     }
+
+    public function buscarUsuarioDAO($usuario)
+    {
+        // Inclui o arquivo da classe ConexaoDB
+        require_once "ConexaoDB.php";
+
+        // Cria o objeto da classe ConexaoDB
+        $db = new ConexaoDB();
+
+        // Abre a conexão com o DB
+        $conexao = $db->abrirConexaoDB();
+
+        // Monta a query (busca)
+        $sql = "SELECT
+                    *
+                FROM
+                    usuario
+                WHERE
+                    email = ? AND
+                    senha = ?
+                ";
+        
+        // Cria o Prepared Statement
+        $stmt = $conexao->prepare($sql);
+
+        // Vincula o parâmetro que será inserido no DB
+        $stmt->bind_param("ss", $_email, $_senha);
+        // s == string
+        // i == int
+        // f == float
+        // b == Blob
+
+        // Recebe os valores guardados no objeto
+        $_email = $usuario->email;
+        $_senha = $usuario->senha;
+
+        // Executa o Statement
+        $stmt->execute();
+
+        // Guarda o resultado encontrado
+        $resultado = $stmt->get_result()->fetch_assoc();
+
+        // Fecha o Statement e Conexão
+        $stmt->close();
+        $db->fecharConexaoDB($conexao);
+
+        return $resultado;
+    }
 }

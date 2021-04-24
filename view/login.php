@@ -15,7 +15,18 @@
 
     <br><br>
     <form action="../controller/usuarioController.php" method="POST">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email"> <!-- Self Closing (Se fecha nela mesma) -->
 
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha">
+
+        <button name="btnLogin">Login</button>
+        <!-- Valores de button
+            Submit (padrão)
+            Button
+            Reset
+        -->
     </form>
 </body>
 </html>

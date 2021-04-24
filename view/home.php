@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,5 +16,8 @@
     <?php
     include_once "include/menu.php";
     ?>
+
+    <br><br>
+    <?= "Bem-vindo " . $_SESSION['nome'] ?>
 </body>
 </html>
