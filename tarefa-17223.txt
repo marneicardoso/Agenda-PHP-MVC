@@ -11,3 +11,5 @@ View > login.php
 Extra:
 
  - Colocar mais parâmetros na SESSION e buscar noutra página
+
+- Ver exemplo de unset Session

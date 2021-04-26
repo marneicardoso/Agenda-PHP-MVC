@@ -60,15 +60,14 @@ class UsuarioDAO
                 FROM
                     usuario
                 WHERE
-                    email = ? AND
-                    senha = ?
+                    email = ?
                 ";
         
         // Cria o Prepared Statement
         $stmt = $conexao->prepare($sql);
 
         // Vincula o parâmetro que será inserido no DB
-        $stmt->bind_param("ss", $_email, $_senha);
+        $stmt->bind_param("s", $_email);
         // s == string
         // i == int
         // f == float
@@ -76,7 +75,6 @@ class UsuarioDAO
 
         // Recebe os valores guardados no objeto
         $_email = $usuario->email;
-        $_senha = $usuario->senha;
 
         // Executa o Statement
         $stmt->execute();

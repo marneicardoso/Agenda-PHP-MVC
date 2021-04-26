@@ -32,6 +32,17 @@ class ContatoService
         $foneFormatado = str_replace("-", "", $foneFormatado);
         $contato->fone = $foneFormatado;
     }
+
+    public function buscarContato($campo, $tipo)
+    {
+        // inclui o arquivo ContatoDAO
+        require_once "ContatoDAO.php";
+
+        // Cria o objeto da classe ContatoDAO
+        $dao = new ContatoDAO();
+
+        return $resultado = $dao->buscarContatoDAO($campo, $tipo);
+    }
 }
 
 // PSR - function e class a abertura do bloco é embaixo

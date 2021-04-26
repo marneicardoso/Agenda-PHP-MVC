@@ -60,8 +60,6 @@ function efetuarLogin()
         $_SESSION['email'] = $response['email'];
         $_SESSION['nome'] = $response['nome'];
 
-        //session_destroy();
-
         header('Location: ../view/home.php');
     }
 }
